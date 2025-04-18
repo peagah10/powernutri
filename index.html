@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PowerNutri - Suplementos Alimentares Premium</title>
+    <meta name="description" content="Suplementos alimentares de alta qualidade para potencializar seus resultados. Proteínas, vitaminas, termogênicos e muito mais com entrega para todo o Brasil.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#e00f00',
+                        dark: '#222',
+                        light: '#f8f9fa',
+                        success: '#28a745',
+                        danger: '#dc3545'
+                    },
+                }
+            }
+        }
+        
+        // Detectar modo escuro
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <style>
+        .main-background {
+            position: relative;
+            background-color: #ffffff; /* Cor de fallback */
+          }
+          
+          .main-background::before {
+            content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('images/fu.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+  
+  /* Ajustes principais para melhor visibilidade */
+  opacity: 1.0; /* Aumente este valor para a imagem ficar mais visível */
+  filter: brightness(1.0) contrast(1.0);
+  
+  /* Garante que a imagem cubra toda a área */
+  background-color: #000000; /* Cor de fallback */
+}
+
+/* Ajuste para o modo escuro */
+.dark body::before {
+  opacity: 0.5; /* No modo escuro pode ser um pouco menor */
+  filter: brightness(0.7) contrast(1.2);
+}
+
+/* Ajuste para garantir legibilidade do conteúdo */
+.header, .section {
+  background-color: rgba(82, 80, 80, 0.5); /* Fundo semi-transparente */
+}
+
+.dark .header, .dark .section {
+  background-color: rgba(0, 0, 0, 0);}
+          .section {
+           
+            border-radius: var(--radius);
+            margin: 1rem;
+            padding: 2
+          }
+        /* Variáveis e Reset */
+        :root {
+            --primary: #5D5CDE;
+            --secondary: #e00f00;
+            --accent: #4CAF50;
+            --dark: #222;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #28a745;
+            --danger: #dc3545;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-primary);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .dark body {
+            color: #e2e2e2;
+            background-color: #181818;
+        }
+
+        /* Tipografia */
+        h1, h2, h3, h4, h5 {
+            font-family: #e00f00;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        a {
+            color: #e00f00;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        /* Layout e Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #4b4acb;
+            border-color: #4b4acb;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #e00f00;
+            color: white;
+            border-color: #e00f00;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e00f00;
+            border-color: #e00f00;
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+        
+        .dark .header {
+            background-color: #222;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: #e00f00;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #e00f00;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem;
+        }
+        
+        .dark .nav-menu a {
+            color: #e2e2e2;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            padding: 0.25rem;
+            z-index: 1010;
+        }
+        
+        .dark .mobile-toggle {
+            color: #e2e2e2;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-actions a {
+            margin-left: 1rem;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+        
+        .dark .header-actions a {
+            color: #e2e2e2;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 50%;
+        }
+
+        /* Barra de pesquisa */
+        .search-container {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            display: none;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .dark .search-container {
+            background-color: #222;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-container.active {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .search-form {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition);
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        .dark .search-input {
+            background-color: #333;
+            border-color: #444;
+            color: #e2e2e2;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(93, 92, 222, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .dark .search-icon {
+            color: #aaa;
+        }
+
+        .search-close {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .dark .search-close {
+            color: #aaa;
+        }
+
+        .search-close:hover {
+            color: var(--danger);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .dark .search-results {
+            background-color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .dark .search-result-item {
+            border-bottom-color: #444;
+        }
+
+        .search-result-item:hover {
+            background-color: rgba(93, 92, 222, 0.1);
+        }
+        
+        .dark .search-result-item:hover {
+            background-color: rgba(93, 92, 222, 0.2);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-image {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-right: 1rem;
+            background-color: var(--light-gray);
+        }
+        
+        .dark .search-result-image {
+            background-color: #444;
+        }
+
+        .search-result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .search-result-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .search-result-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .search-no-results {
+            padding: 1rem;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .dark .search-no-results {
+            color: #aaa;
+        }
+
+        /* Hero Banner com Imagens de Suplementos */
+        .hero-gallery {
+            display: flex;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+        }
+
+        .hero-image {
+            flex: 1;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-overlay p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            min-width: auto;
+        }
+
+        .badge i {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* Produtos */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: rgb(255, 255, 255);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dark .product-card {
+            background-color: #222;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .dark .product-img {
+            background-color: #333;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .dark .product-category {
+            color: #ffffff;
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-right: 0.5rem;
+        }
+
+        .price-container {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .old-price {
+            color: var(--gray);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+        }
+        
+        .dark .old-price {
+            color: #aaa;
+        }
+
+        .price {
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .product-footer {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Guia Nutricional */
+        .supplement-guide {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .dark .supplement-guide {
+            background-color: #222;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .supplement-category {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dark .supplement-category {
+            border-bottom-color: #444;
+        }
+
+        .supplement-category:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .supplement-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            margin-top: 0.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        .whatsapp-text {
+            color: #adb5bd;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        
+        .whatsapp-text:hover {
+            color: white;
+        }
+        
+        .whatsapp-text i {
+            color: #25D366;
+            font-size: 1.2rem;
+        }
+
+        /* Floating Cart */
+        .floating-cart {
+            position: fixed;
+            right: -100%;
+            top: 0;
+            width: 100%;
+            max-width: 350px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dark .floating-cart {
+            background-color: #222;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-cart.active {
+            right: 0;
+        }
+
+        .floating-cart-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dark .floating-cart-header {
+            border-bottom-color: #444;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .dark .close-cart {
+            color: #aaa;
+        }
+
+        .close-cart:hover {
+            color: var(--danger);
+        }
+
+        .floating-cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .floating-cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dark .floating-cart-item {
+            border-bottom-color: #444;
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-gray);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            overflow: hidden;
+        }
+        
+        .dark .cart-item-image {
+            background-color: #333;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 24px;
+            height: 24px;
+            background-color: var(--light-gray);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .dark .quantity-btn {
+            background-color: #444;
+            color: #e2e2e2;
+        }
+
+        .quantity-value {
+            padding: 0 0.5rem;
+        }
+
+        .cart-item-remove {
+            color: var(--danger);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-left: 1rem;
+        }
+
+        .floating-cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .dark .floating-cart-footer {
+            border-top-color: #444;
+        }
+
+        .cart-subtotal {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+        }
+        
+        .dark .empty-cart {
+            color: #aaa;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1400;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Utilitários */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-1 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-2 {
+            margin-top: 1rem;
+        }
+
+        .mt-3 {
+            margin-top: 1.5rem;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Filtro por Categoria */
+        .category-filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-filter {
+            padding: 0.5rem 1.25rem;
+            background-color: var(--light-gray);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .dark .category-filter {
+            background-color: #333;
+            color: #e2e2e2;
+        }
+
+        .category-filter:hover, .category-filter.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Estilo para highlight nos produtos */
+        @keyframes highlightProduct {
+            0%, 100% { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+            50% { box-shadow: 0 5px 30px rgba(93, 92, 222, 0.6); }
+        }
+        
+        .product-card.highlight {
+            animation: highlightProduct 2s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        /* Menu Cart Button - NOVA SOLUÇÃO POSICIONADA CORRETAMENTE */
+        .menu-cart-button {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 60px;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            color: var(--dark);
+            border: none;
+            cursor: pointer;
+            z-index: 1010;
+            font-size: 18px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dark .menu-cart-button {
+            color: #e2e2e2;
+        }
+        
+        .menu-cart-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .category-filter-container {
+                gap: 0.5rem;
+            }
+            
+            .category-filter {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .menu-cart-button {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                height: calc(100vh - 60px);
+                overflow-y: auto;
+                z-index: 1010;
+            }
+            
+            .dark .nav-menu {
+                background-color: #222;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.25rem 0;
+                margin-left: 0;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 0.5rem;
+                font-size: 1.1rem;
+            }
+
+            .header-cart {
+                display: none;
+            }
+            
+            /* Melhorias para responsividade */
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .hero-overlay h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-overlay p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-gallery {
+                height: 350px;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: center;
+            }
+            
+            .badge {
+                width: auto;
+                padding: 0.5rem 1rem;
+                justify-content: center;
+            }
+            
+            .floating-cart {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .product-img {
+                height: 150px;
+            }
+            
+            .product-title {
+                font-size: 0.95rem;
+            }
+            
+            .product-info {
+                padding: 0.75rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .footer-column h4 {
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+            
+            .footer-links li {
+                margin-bottom: 0.5rem;
+            }
+            
+            .section-title {
+                margin-bottom: 1.5rem;
+                font-size: 1.75rem;
+            }
+            
+            .supplement-guide {
+                padding: 1.5rem;
+            }
+            
+            .supplement-category h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.35rem;
+            }
+            
+            .menu-cart-button {
+                right: 55px;
+            }
+            
+            .hero-overlay h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-overlay p {
+                font-size: 0.9rem;
+            }
+
+            .hero-gallery {
+                height: 280px;
+            }
+            
+            .btn-lg {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .category-filter-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 0.5rem;
+            }
+            
+            .category-filter {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+                width: 100%;
+            }
+            
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            
+            .product-img {
+                height: 130px;
+            }
+            
+            .product-title {
+                font-size: 0.9rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .product-rating {
+                margin-bottom: 0.25rem;
+            }
+            
+            .stars {
+                font-size: 0.8rem;
+            }
+            
+            .price {
+                font-size: 1.1rem;
+            }
+            
+            .product-footer .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h4::after {
+                margin: 0.5rem auto;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-background">
+        <!-- Todo o conteúdo do site aqui -->
+      </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <span style="color: #5D5CDE;">Power</span>
+                    <span style="color: #e00f00;">Nutri</span>
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu de navegação">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#guia">Guia Nutricional</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="header-actions">
+                    <a href="#" id="search-toggle" aria-label="Buscar"><i class="fas fa-search"></i></a>
+                    <a href="#" class="cart-icon header-cart" id="cart-toggle" aria-label="Carrinho de compras">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </div>
+                
+                <!-- Botão de carrinho no menu (mobile) -->
+                <button class="menu-cart-button" id="menu-cart-button" aria-label="Carrinho">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="menu-cart-badge" id="menu-cart-badge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Barra de Pesquisa -->
+    <div class="search-container" id="search-container">
+        <div class="container">
+            <form class="search-form" id="search-form">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="search-input" placeholder="Buscar produtos..." autocomplete="off">
+                <button type="button" class="search-close" id="search-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-results" id="search-results"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Banner com imagens de suplementos -->
+    <section class="hero-gallery">
+        <img src="images/1.jpg" alt="Suplementos alimentares" class="hero-image">
+        <img src="images/2.jpg" alt="Suplementos para treino" class="hero-image">
+        <img src="images/3.jpg" alt="Proteínas e vitaminas" class="hero-image">
+        <img src="images/4.jpg" alt="Atleta preparando shake" class="hero-image">
+        <img src="images/5.jpg" alt="Treino de alta intensidade" class="hero-image">
+        <div class="hero-overlay">
+            <h1>Potencialize Seu Desempenho</h1>
+            <p>Os melhores suplementos alimentares para ajudar você a atingir seus objetivos de saúde e fitness</p>
+            <a href="#produtos" class="btn btn-primary btn-lg">Comprar Agora</a>
+            
+            <div class="trust-badges">
+                <div class="badge">
+                    <i class="fas fa-truck"></i>
+                    <span>Frete Grátis acima de R$199</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Produtos Originais</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-medal"></i>
+                    <span>Qualidade Garantida</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section" id="produtos">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            
+            <div class="category-filter-container">
+                <div class="category-filter active" data-filter="todos">Todos</div>
+                <div class="category-filter" data-filter="proteinas-aminoacidos">Proteínas e Aminoácidos</div>
+                <div class="category-filter" data-filter="energia-performance">Energia e Performance</div>
+                <div class="category-filter" data-filter="hipertrofia-massa">Hipertrofia e Massa</div>
+                <div class="category-filter" data-filter="saude-bem-estar">Saúde e Bem-Estar</div>
+            </div>
+            
+            <div class="products" id="products-container">
+                <!-- PROTEÍNAS E AMINOÁCIDOS -->
+                <div class="product-card" data-id="1" data-name="Whey Protein Isolado - Integralmédica" data-price="149.90" data-category="proteinas-aminoacidos">
+                    <div class="product-img">
+                        <img src="images/whey-iso2.png" alt="Whey Protein Isolado - Integralmédica">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Proteínas e Aminoácidos</div>
+                        <h3 class="product-title">Whey Protein Isolado - Integralmédica</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>(124)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="old-price">R$189,90</div>
+                            <div class="price">R$149,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="2" data-name="Whey Protein 100% - Max Titanium" data-price="129.90" data-category="proteinas-aminoacidos">
+                    <div class="product-img">
+                        <img src="images/whey2.png" alt="Whey Protein 100% - Max Titanium">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Proteínas e Aminoácidos</div>
+                        <h3 class="product-title">Whey Protein 100% - Max Titanium</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(98)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$129,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="4" data-name="BCAA Pro X  DC-X" data-price="99.90" data-category="proteinas-aminoacidos">
+                    <div class="product-img">
+                        <img src="images/bcaa-prox.png" alt="BCAA Pro X  DC-X">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Proteínas e Aminoácidos</div>
+                        <h3 class="product-title">BCAA Pro X  DC-X</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(71)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$99,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="4" data-name="BCAA Drink - Max Titanium" data-price="89.90" data-category="proteinas-aminoacidos">
+                    <div class="product-img">
+                        <img src="images/bcca.png" alt="BCAA Drink - Max Titanium">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Proteínas e Aminoácidos</div>
+                        <h3 class="product-title">BCAA Drink - Max Titanium</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(71)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$89,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ENERGIA E PERFORMANCE -->
+                <div class="product-card" data-id="7" data-name="Creatina - Integralmédica" data-price="89.90" data-category="energia-performance">
+                    <div class="product-img">
+                        <img src="images/creatina-int.png" alt="Creatina - Integralmédica">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Energia e Performance</div>
+                        <h3 class="product-title">Creatina - Integralmédica</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(187)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="old-price">R$109,90</div>
+                            <div class="price">R$89,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="7" data-name="Creatina - Probiótica" data-price="99.90" data-category="energia-performance">
+                    <div class="product-img">
+                        <img src="images/creatina-1.png" alt="Creatina - Probiótica">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Energia e Performance</div>
+                        <h3 class="product-title">Creatina - Probiótica</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(187)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="old-price">R$109,90</div>
+                            <div class="price">R$99,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-id="8" data-name="Pré-Treino Hazer - Growth" data-price="119.90" data-category="energia-performance">
+                    <div class="product-img">
+                        <img src="images/pre.png" alt="Pré-Treino Hazer - Growth">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Energia e Performance</div>
+                        <h3 class="product-title">Pré-Treino Hazer - Growth</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(56)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$119,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="8" data-name="Pré-Treino - CrazyNess" data-price="139.90" data-category="energia-performance">
+                    <div class="product-img">
+                        <img src="images/pree.png" alt="Pré-Treino - CrazyNess">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Energia e Performance</div>
+                        <h3 class="product-title">Pré-Treino - CrazyNess</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(56)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$139,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HIPERTROFIA E MASSA -->
+                <div class="product-card" data-id="9" data-name="Mass Gainer - Newnutrition" data-price="169.90" data-category="hipertrofia-massa">
+                    <div class="product-img">
+                        <img src="images/mass.png" alt="Mass Gainer - Newnutrition">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Hipertrofia e Massa</div>
+                        <h3 class="product-title">Mass Gainer - Newnutrition</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(92)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="old-price">R$199,90</div>
+                            <div class="price">R$169,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="9" data-name="Hipercalórico - Dark Lab" data-price="169.90" data-category="hipertrofia-massa">
+                    <div class="product-img">
+                        <img src="images/hiper.png" alt="Hipercalórico - Dark Lab">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Hipertrofia e Massa</div>
+                        <h3 class="product-title">Hipercalórico - Dark Lab</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(92)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="old-price">R$179,90</div>
+                            <div class="price">R$159,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SAÚDE E BEM-ESTAR -->
+                <div class="product-card" data-id="10" data-name="Ômega 3 - Katiguã" data-price="59.90" data-category="saude-bem-estar">
+                    <div class="product-img">
+                        <img src="images/ome3.png" alt="Ômega 3 - Katiguã">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Saúde e Bem-Estar</div>
+                        <h3 class="product-title">Ômega 3 - Katiguã</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>(105)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$59,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-id="10" data-name="Chá Verde - Duom" data-price="69.90" data-category="saude-bem-estar">
+                    <div class="product-img">
+                        <img src="images/cha-verde.png" alt="Chá Verde - Duom">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Saúde e Bem-Estar</div>
+                        <h3 class="product-title">Chá Verde - Duom</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>(105)</span>
+                        </div>
+                        <div class="price-container">
+                            <div class="price">R$69,90</div>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-block add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guia Nutricional -->
+    <section class="section" id="guia">
+        <div class="container">
+            <h2 class="section-title">Guia Nutricional</h2>
+            <div class="supplement-guide">
+                <div class="supplement-category">
+                    <h3>Proteínas e Aminoácidos</h3>
+                    <p>As proteínas são macronutrientes essenciais para a construção e recuperação muscular. Os aminoácidos são os blocos construtores das proteínas.</p>
+                    <ul>
+                        <li><strong>Whey Protein:</strong> De rápida absorção, ideal para o pós-treino, contribuindo para a recuperação e crescimento muscular.</li>
+                        <li><strong>Caseína:</strong> Proteína de absorção lenta, excelente para uso noturno, fornecendo aminoácidos gradualmente durante o sono.</li>
+                        <li><strong>BCAA:</strong> Aminoácidos de cadeia ramificada que estimulam a síntese proteica e diminuem o catabolismo muscular.</li>
+                        <li><strong>Glutamina:</strong> O aminoácido mais abundante no organismo, essencial para recuperação muscular e função imunológica.</li>
+                    </ul>
+                </div>
+                
+                <div class="supplement-category">
+                    <h3>Energia e Performance</h3>
+                    <p>Suplementos que melhoram a capacidade energética e a performance durante o exercício.</p>
+                    <ul>
+                        <li><strong>Creatina:</strong> Aumenta a força, potência e massa muscular, fornecendo energia rápida para exercícios intensos.</li>
+                        <li><strong>Pré-Treino:</strong> Combinação de ingredientes que aumentam energia, foco e bombeamento muscular antes do treino.</li>
+                        <li><strong>Termogênicos:</strong> Aceleram o metabolismo, auxiliando na queima de gordura e fornecendo mais energia.</li>
+                        <li><strong>Beta-Alanina:</strong> Reduz a fadiga muscular e aumenta a resistência em exercícios de alta intensidade.</li>
+                    </ul>
+                </div>
+                
+                <!-- Nova seção adicionada: Hipertrofia e Massa -->
+                <div class="supplement-category">
+                    <h3>Hipertrofia e Massa</h3>
+                    <p>Suplementos voltados para o ganho de massa muscular e promoção da hipertrofia.</p>
+                    <ul>
+                        <li><strong>Mass Gainer:</strong> Suplemento hipercalórico com alto teor de carboidratos e proteínas para ganho de peso e massa muscular.</li>
+                        <li><strong>ZMA:</strong> Combinação de zinco, magnésio e vitamina B6 que pode otimizar os níveis de testosterona e melhorar a recuperação muscular.</li>
+                        <li><strong>HMB:</strong> Metabólito da leucina que ajuda a prevenir a quebra de proteínas musculares e estimula a síntese proteica.</li>
+                        <li><strong>Tribulus Terrestris:</strong> Planta que pode ajudar a aumentar naturalmente os níveis de testosterona, beneficiando o ganho de massa muscular.</li>
+                    </ul>
+                </div>
+                
+                <!-- Nova seção adicionada: Saúde e Bem-Estar -->
+                <div class="supplement-category">
+                    <h3>Saúde e Bem-Estar</h3>
+                    <p>Suplementos que promovem a saúde geral e o bem-estar, complementando uma dieta equilibrada.</p>
+                    <ul>
+                        <li><strong>Ômega 3:</strong> Ácidos graxos essenciais que contribuem para a saúde cardiovascular, redução da inflamação e saúde cerebral.</li>
+                        <li><strong>Multivitamínicos:</strong> Combinação de vitaminas e minerais essenciais que ajudam a preencher possíveis deficiências nutricionais.</li>
+                        <li><strong>Vitamina D:</strong> Importante para a saúde óssea, imunidade e função muscular, especialmente para quem tem pouca exposição ao sol.</li>
+                        <li><strong>Probióticos:</strong> Microorganismos benéficos que ajudam a manter a saúde intestinal e fortalecem o sistema imunológico.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contato">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h4>
+                        <span style="color: #5D5CDE;">Power</span><span style="color: #e00f00;">Nutri</span>
+                    </h4>
+                    <p>Sua loja online de suplementos alimentares de alta qualidade para potencializar seus resultados.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/5575991342279" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#guia">Guia Nutricional</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-filter="proteinas-aminoacidos">Proteínas e Aminoácidos</a></li>
+                        <li><a href="#" data-filter="energia-performance">Energia e Performance</a></li>
+                        <li><a href="#" data-filter="hipertrofia-massa">Hipertrofia e Massa</a></li>
+                        <li><a href="#" data-filter="saude-bem-estar">Saúde e Bem-Estar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> (75) 99134-2279</li>
+                        <li><i class="fas fa-envelope"></i> contato@powernutri.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Principal, S/N - Centro, Santana do Ipanema - AL</li>
+                        <li>
+                            <a href="https://wa.me/5575991342279" target="_blank" class="whatsapp-text">
+                                <i class="fab fa-whatsapp"></i> Fale conosco
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 PowerNutri. Todos os direitos reservados.</p>
+                    <p class="developer-credit">
+                        <i class="fas fa-code"></i> Desenvolvido por 
+                        <a href="https://wa.me/5575991342279" target="_blank" class="developer-link">
+                            PeagahTech
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Cart -->
+    <div class="floating-cart" id="floating-cart">
+        <div class="floating-cart-header">
+            <h4>Seu Carrinho (<span id="cart-items-count">0</span>)</h4>
+            <button class="close-cart" id="close-cart" aria-label="Fechar carrinho">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="floating-cart-items" id="floating-cart-items">
+            <div class="empty-cart text-center" id="empty-cart">
+                <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--light-gray); margin-bottom: 1rem;"></i>
+                <p>Seu carrinho está vazio</p>
+                <a href="#produtos" class="btn btn-outline mt-2">Comprar Agora</a>
+            </div>
+            <!-- Os itens do carrinho serão adicionados dinamicamente aqui -->
+        </div>
+        <div class="floating-cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">R$0,00</span>
+            </div>
+            <button id="finalizar-pedido" class="btn btn-primary btn-block mb-2">Finalizar Pedido</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Gerenciamento do Carrinho
+        const cart = {
+            items: [],
+            
+            addItem(product, quantity = 1) {
+                // Capturar dados do produto corretamente
+                const productId = product.getAttribute('data-id');
+                const productName = product.getAttribute('data-name');
+                const productPrice = parseFloat(product.getAttribute('data-price'));
+                const productCategory = product.getAttribute('data-category');
+                const productImage = product.querySelector('.product-img img').src;
+                
+                // Verificar se todos os dados necessários foram obtidos
+                if (!productId || !productName || isNaN(productPrice)) {
+                    console.error('Dados do produto incompletos:', { id: productId, name: productName, price: productPrice });
+                    return false;
+                }
+                
+                const existingItem = this.items.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    this.items.push({
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        category: productCategory,
+                        image: productImage,
+                        quantity: quantity
+                    });
+                }
+                
+                this.updateCart();
+                return true;
+            },
+            
+            removeItem(productId) {
+                const index = this.items.findIndex(item => item.id === productId);
+                
+                if (index !== -1) {
+                    this.items.splice(index, 1);
+                    this.updateCart();
+                    return true;
+                }
+                
+                return false;
+            },
+            
+            updateQuantity(productId, quantity) {
+                const item = this.items.find(item => item.id === productId);
+                
+                if (item) {
+                    if (quantity <= 0) {
+                        return this.removeItem(productId);
+                    }
+                    
+                    item.quantity = quantity;
+                    this.updateCart();
+                    return true;
+                }
+                
+                return false;
+            },
+            
+            getTotal() {
+                return this.items.reduce((total, item) => {
+                    // Garantindo que o preço e quantidade sejam números
+                    const price = parseFloat(item.price);
+                    const quantity = parseInt(item.quantity);
+                    
+                    if (!isNaN(price) && !isNaN(quantity)) {
+                        return total + (price * quantity);
+                    }
+                    return total;
+                }, 0);
+            },
+            
+            getCount() {
+                return this.items.reduce((count, item) => {
+                    const quantity = parseInt(item.quantity);
+                    return count + (isNaN(quantity) ? 0 : quantity);
+                }, 0);
+            },
+            
+            getFormattedWhatsAppMessage() {
+                if (this.items.length === 0) {
+                    return "Olá! Gostaria de fazer um pedido.";
+                }
+                
+                let message = "Olá! Gostaria de fazer o seguinte pedido:\n\n";
+                
+                this.items.forEach((item, index) => {
+                    const itemTotal = parseFloat(item.price) * parseInt(item.quantity);
+                    message += `${index + 1}. ${item.name} - Quantidade: ${item.quantity} - R$${itemTotal.toFixed(2).replace('.', ',')}\n`;
+                });
+                
+                message += `\nTotal: R$${this.getTotal().toFixed(2).replace('.', ',')}`;
+                message += "\n\nPoderia me informar o prazo de entrega e as formas de pagamento disponíveis?";
+                
+                return encodeURIComponent(message);
+            },
+            
+            updateCart() {
+                // Atualizar contador no ícone do carrinho
+                document.getElementById('cart-count').textContent = this.getCount();
+                document.getElementById('cart-items-count').textContent = this.getCount();
+                document.getElementById('menu-cart-badge').textContent = this.getCount();
+                
+                // Atualizar subtotal
+                document.getElementById('cart-subtotal').textContent = `R$${this.getTotal().toFixed(2).replace('.', ',')}`;
+                
+                // Exibir/ocultar mensagem de carrinho vazio
+                const emptyCart = document.getElementById('empty-cart');
+                if (this.items.length === 0) {
+                    emptyCart.style.display = 'block';
+                } else {
+                    emptyCart.style.display = 'none';
+                }
+                
+                // Atualizar itens do carrinho
+                this.renderItems();
+            },
+            
+            renderItems() {
+                const container = document.getElementById('floating-cart-items');
+                
+                // Limpar itens atuais, exceto a mensagem de carrinho vazio
+                const existingItems = container.querySelectorAll('.floating-cart-item');
+                existingItems.forEach(item => item.remove());
+                
+                // Adicionar itens atualizados
+                this.items.forEach(item => {
+                    // Calcular o subtotal do item
+                    const itemTotal = parseFloat(item.price) * parseInt(item.quantity);
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'floating-cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">R$${parseFloat(item.price).toFixed(2).replace('.', ',')}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn decrease-btn" data-id="${item.id}">-</button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-btn increase-btn" data-id="${item.id}">+</button>
+                                <button class="cart-item-remove" data-id="${item.id}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(cartItem);
+                    
+                    // Adicionar eventos aos botões
+                    cartItem.querySelector('.decrease-btn').addEventListener('click', () => {
+                        this.updateQuantity(item.id, parseInt(item.quantity) - 1);
+                    });
+                    
+                    cartItem.querySelector('.increase-btn').addEventListener('click', () => {
+                        this.updateQuantity(item.id, parseInt(item.quantity) + 1);
+                    });
+                    
+                    cartItem.querySelector('.cart-item-remove').addEventListener('click', () => {
+                        this.removeItem(item.id);
+                    });
+                });
+            },
+            
+            sendToWhatsApp() {
+                if (this.items.length === 0) {
+                    alert('Adicione produtos ao carrinho antes de finalizar o pedido.');
+                    return;
+                }
+                
+                const message = this.getFormattedWhatsAppMessage();
+                const whatsappLink = `https://wa.me/5575991342279?text=${message}`;
+                window.open(whatsappLink, '_blank');
+            }
+        };
+
+        // Sistema de pesquisa
+        const searchSystem = {
+            isActive: false,
+            searchContainer: document.getElementById('search-container'),
+            searchInput: document.getElementById('search-input'),
+            searchResults: document.getElementById('search-results'),
+            products: [],
+            
+            initialize() {
+                // Carregar todos os produtos disponíveis
+                this.loadProducts();
+                
+                // Adicionar evento de pesquisa
+                this.searchInput.addEventListener('input', () => {
+                    this.performSearch(this.searchInput.value.trim());
+                });
+                
+                // Abrir/fechar barra de pesquisa
+                document.getElementById('search-toggle').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggleSearch();
+                });
+                
+                document.getElementById('search-close').addEventListener('click', () => {
+                    this.closeSearch();
+                });
+                
+                // Fechar pesquisa ao clicar fora
+                document.addEventListener('click', (e) => {
+                    if (this.isActive && 
+                        !this.searchContainer.contains(e.target) && 
+                        e.target.id !== 'search-toggle' && 
+                        !e.target.closest('#search-toggle')) {
+                        this.closeSearch();
+                    }
+                });
+                
+                // Prevenir propagação de cliques dentro da pesquisa
+                this.searchContainer.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            },
+            
+            loadProducts() {
+                // Carrega todos os produtos da loja
+                const productCards = document.querySelectorAll('.product-card');
+                
+                productCards.forEach(card => {
+                    const id = card.getAttribute('data-id');
+                    const name = card.getAttribute('data-name');
+                    const price = parseFloat(card.getAttribute('data-price'));
+                    const category = card.getAttribute('data-category');
+                    const image = card.querySelector('.product-img img').src;
+                    
+                    this.products.push({
+                        id,
+                        name,
+                        price,
+                        category,
+                        image,
+                        element: card
+                    });
+                });
+            },
+            
+            toggleSearch() {
+                if (this.isActive) {
+                    this.closeSearch();
+                } else {
+                    this.openSearch();
+                }
+            },
+            
+            openSearch() {
+                this.searchContainer.classList.add('active');
+                this.searchInput.focus();
+                this.isActive = true;
+                
+                // Fechar menu mobile se estiver aberto
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            },
+            
+            closeSearch() {
+                this.searchContainer.classList.remove('active');
+                this.searchInput.value = '';
+                this.searchResults.classList.remove('active');
+                this.isActive = false;
+            },
+            
+            performSearch(query) {
+                // Limpar resultados anteriores
+                this.searchResults.innerHTML = '';
+                
+                if (query.length < 2) {
+                    this.searchResults.classList.remove('active');
+                    return;
+                }
+                
+                // Filtrar produtos
+                const results = this.products.filter(product => {
+                    const categoryName = this.getCategoryDisplayName(product.category);
+                    return product.name.toLowerCase().includes(query.toLowerCase()) || 
+                           categoryName.toLowerCase().includes(query.toLowerCase());
+                });
+                
+                if (results.length === 0) {
+                    this.searchResults.innerHTML = `
+                        <div class="search-no-results">
+                            Nenhum produto encontrado para "${query}"
+                        </div>
+                    `;
+                } else {
+                    // Adicionar resultados à lista
+                    results.forEach(product => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'search-result-item';
+                        resultItem.innerHTML = `
+                            <div class="search-result-image">
+                                <img src="${product.image}" alt="${product.name}">
+                            </div>
+                            <div class="search-result-details">
+                                <h4>${product.name}</h4>
+                                <div>${this.getCategoryDisplayName(product.category)}</div>
+                                <div class="search-result-price">R$${product.price.toFixed(2).replace('.', ',')}</div>
+                            </div>
+                        `;
+                        
+                        resultItem.addEventListener('click', () => {
+                            // Filtrar para a categoria do produto
+                            const categoryFilter = document.querySelector(`.category-filter[data-filter="${product.category}"]`);
+                            if (categoryFilter) {
+                                categoryFilter.click();
+                            }
+                            
+                            // Rolar até o produto
+                            setTimeout(() => {
+                                product.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                
+                                // Destacar o produto
+                                product.element.classList.add('highlight');
+                                setTimeout(() => {
+                                    product.element.classList.remove('highlight');
+                                }, 2000);
+                                
+                                // Fechar a pesquisa
+                                this.closeSearch();
+                            }, 300);
+                        });
+                        
+                        this.searchResults.appendChild(resultItem);
+                    });
+                }
+                
+                this.searchResults.classList.add('active');
+            },
+            
+            getCategoryDisplayName(categoryKey) {
+                const categoryNames = {
+                    'proteinas-aminoacidos': 'Proteínas e Aminoácidos',
+                    'energia-performance': 'Energia e Performance',
+                    'hipertrofia-massa': 'Hipertrofia e Massa Muscular',
+                    'saude-bem-estar': 'Saúde e Bem-Estar',
+                    'emagrecimento-dieta': 'Emagrecimento e Dieta',
+                    'funcionais-especificos': 'Funcionais e Específicos',
+                    'acessorios-combos': 'Acessórios e Combos'
+                };
+                
+                return categoryNames[categoryKey] || categoryKey;
+            }
+        };
+
+        // Inicialização e Eventos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar o sistema de pesquisa
+            searchSystem.initialize();
+            
+            // Slider de imagens no banner
+            const heroImages = document.querySelectorAll('.hero-image');
+            let currentHeroImage = 0;
+            
+            function rotateHeroImages() {
+                heroImages.forEach((img, index) => {
+                    img.style.opacity = index === currentHeroImage ? 1 : 0;
+                });
+                
+                currentHeroImage = (currentHeroImage + 1) % heroImages.length;
+            }
+            
+            // Configurar o estilo inicial das imagens
+            heroImages.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.transition = 'opacity 1s ease-in-out';
+                img.style.opacity = index === 0 ? 1 : 0;
+            });
+            
+            // Iniciar o slider
+            setInterval(rotateHeroImages, 5000);
+            
+            // Menu Mobile Toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                
+                // Fechar pesquisa se estiver aberta
+                if (searchSystem.isActive) {
+                    searchSystem.closeSearch();
+                }
+            });
+            
+            // Carrinho Flutuante
+            const cartToggle = document.getElementById('cart-toggle');
+            const menuCartButton = document.getElementById('menu-cart-button');
+            const closeCart = document.getElementById('close-cart');
+            const floatingCart = document.getElementById('floating-cart');
+            const overlay = document.getElementById('overlay');
+            
+            function openCart(e) {
+                if (e) e.preventDefault();
+                floatingCart.classList.add('active');
+                overlay.classList.add('active');
+                
+                // Fechar o menu mobile se estiver aberto
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            }
+            
+            function closeCartFn() {
+                floatingCart.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+            
+            cartToggle.addEventListener('click', openCart);
+            menuCartButton.addEventListener('click', openCart);
+            
+            closeCart.addEventListener('click', closeCartFn);
+            
+            overlay.addEventListener('click', closeCartFn);
+            
+            // Filtro por categoria
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            const products = document.querySelectorAll('.product-card');
+            
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Atualizar classe active no filtro
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filtrar produtos
+                    products.forEach(product => {
+                        if (filterValue === 'todos' || product.getAttribute('data-category') === filterValue) {
+                            product.style.display = 'flex';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Links no footer para categorias
+            document.querySelectorAll('.footer-links a[data-filter]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Encontrar e ativar o filtro correspondente
+                    const correspondingFilter = document.querySelector(`.category-filter[data-filter="${filterValue}"]`);
+                    if (correspondingFilter) {
+                        correspondingFilter.click();
+                    }
+                    
+                    // Rolar para a seção de produtos
+                    document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Fechar o menu mobile se estiver aberto
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Adicionar ao carrinho
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    if (cart.addItem(productCard)) {
+                        // Feedback visual para o usuário
+                        this.textContent = "Adicionado!";
+                        this.classList.add("btn-success");
+                        
+                        setTimeout(() => {
+                            this.textContent = "Adicionar ao Carrinho";
+                            this.classList.remove("btn-success");
+                        }, 1500);
+                    }
+                });
+            });
+            
+            // Finalizar pedido no WhatsApp
+            document.getElementById('finalizar-pedido').addEventListener('click', function() {
+                cart.sendToWhatsApp();
+            });
+            
+            // Links de navegação da página
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') !== '#' && !this.getAttribute('data-filter')) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 60,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Fechar menu móvel se estiver aberto
+                            if (navMenu.classList.contains('active')) {
+                                navMenu.classList.remove('active');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Impedir zoom em inputs em dispositivos móveis
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                el.addEventListener('focus', function() {
+                    document.body.classList.add('prevent-zoom');
+                });
+                
+                el.addEventListener('blur', function() {
+                    document.body.classList.remove('prevent-zoom');
+                });
+            });
+            
+            // Desativar zoom na página em dispositivos móveis
+            document.addEventListener('gesturestart', function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
