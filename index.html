@@ -283,6 +283,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative; /* Adicionado para posicionar elementos filhos */
         }
 
         .logo {
@@ -1139,19 +1140,19 @@
             border: 2px solid var(--primary);
         }
         
-        /* Menu Cart Button - NOVA SOLUÇÃO POSICIONADA CORRETAMENTE */
+        /* Menu Cart Button - Ajustes para melhor posicionamento */
         .menu-cart-button {
             display: none;
-            position: absolute;
-            top: 0;
-            right: 60px;
+            position: fixed; /* Alterado para fixed para melhor posicionamento */
+            top: 14px; /* Ajustado para centralizar verticalmente com o menu hamburger */
+            right: 70px; /* Distância da direita ajustada */
             width: 40px;
             height: 40px;
             background-color: transparent;
             color: var(--dark);
             border: none;
             cursor: pointer;
-            z-index: 1010;
+            z-index: 1011; /* Z-index aumentado para garantir que fique acima de outros elementos */
             font-size: 18px;
             padding: 0;
             align-items: center;
@@ -1178,7 +1179,7 @@
             font-weight: bold;
         }
 
-        /* Media Queries */
+        /* Media Queries - Responsividade aprimorada */
         @media (max-width: 992px) {
             .products {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -1197,6 +1198,8 @@
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
+                position: relative;
+                right: 0;
             }
             
             .menu-cart-button {
@@ -1333,8 +1336,9 @@
                 font-size: 1.35rem;
             }
             
+            /* Ajuste específico para o botão do carrinho */
             .menu-cart-button {
-                right: 55px;
+                right: 60px; /* Reduzir a distância da direita em telas muito pequenas */
             }
             
             .hero-overlay h1 {
@@ -1392,9 +1396,18 @@
                 font-size: 1.1rem;
             }
             
+            /* Correção para os botões "Adicionar ao Carrinho" */
             .product-footer .btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+                padding: 0.5rem 0.5rem;
+                font-size: 0.85rem;
+                white-space: normal;
+                height: auto;
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 1.2;
             }
             
             .footer-container {
